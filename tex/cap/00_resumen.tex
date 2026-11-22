@@ -1,0 +1,80 @@
+\chapter*{Resumen}
+\addcontentsline{toc}{chapter}{Resumen}
+
+Esta investigación, desarrollada en dos fases, construye un modelo estratégico de transporte para Bogotá y su región en el que la
+demanda futura de viajes no es un pronóstico puntual sino un proceso estocástico. El índice de demanda
+motorizada de cada una de doce zonas sigue un movimiento browniano geométrico (MBG) multivariado con un
+factor común y choques idiosincráticos, simulado con su solución exacta y, como extensión, con saltos
+sistémicos de tipo Merton que representan eventos como la pandemia de 2020. Para cada uno de
+\NEscenarios{} escenarios y cada año entre 2026 y 2050 se resuelve el equilibrio entre transporte
+público y vehículo privado en una red de dieciocho corredores, con congestión vial tipo BPR y
+hacinamiento en el transporte público, calibrada para reproducir en 2025 la velocidad en hora pico
+(18,9 km/h), la participación del transporte público y la duración media de los viajes observadas.
+
+Un \emph{diseño urbano} combina proyectos férreos aún no contratados (extensión de la Línea 1 a la
+calle 100, Línea 2, Línea 3 y Regiotram del Norte) con una política de proximidad y policentrismo de
+intensidad $\theta$, inspirada en la «ciudad de 30 minutos» del POT. Los \NDisenos{} diseños se
+comparan con números aleatorios comunes por su costo social en valor presente (tiempo, operación,
+externalidades, inversión con sobrecostos lognormales y valor residual), y se elige el óptimo
+minimizando una combinación de la media y el CVaR al 95\,\%.
+
+Con los supuestos centrales y la tasa social de descuento del DNP (9\,\%), el diseño óptimo es
+\OptimoNeutral: reduce el costo social esperado de \VPBase{} a \VPOptimo{} billones de pesos de 2025,
+con un beneficio neto esperado de \BNOptimo{} billones y positivo en el \PBNOptimo{} de los escenarios;
+el resultado se mantiene para todo peso del CVaR $w<\WCambio$; desde ese valor el óptimo agrega la
+extensión de la Línea 1, con un CVaR casi idéntico. Las líneas de metro
+adicionales reducen la dispersión del costo, pero su costo de inversión supera los ahorros esperados a
+esa tasa; su signo cambia con tasas de descuento más bajas y, en presencia de saltos sistémicos, la
+combinación con la Línea 3 pasa a ser la de menor CVaR. La valoración de la Línea 3 como opción real
+con mínimos cuadrados de Monte Carlo, validada contra la solución analítica de McDonald y Siegel,
+indica que comprometerse hoy destruye valor (VPN esperado de \OpcionAhora{} billones) y que la regla
+óptima es esperar y construir solo si el ahorro operativo observado cruza una frontera de ejercicio.
+
+La fase I recalibra el modelo a la coyuntura de 2013, cuando se diseñó un metro subterráneo, y evalúa
+la Primera Línea con la información de entonces. Con la tasa de descuento de 12\,\% vigente, el metro
+elevado tenía el mayor beneficio neto esperado (\BNElevDoce{} billones, frente a \BNSubOfDoce{} del
+subterráneo con su costo oficial y \BNSubUnDoce{} con costos de mercado). La conclusión no es robusta:
+con la tasa actual de 9\,\% y el costo oficial ambas tipologías empatan, y por debajo de \TasaEmpate{}
+el subterráneo sería preferible. El tamaño de la ciudad, por sí solo, no justifica el subterráneo: la
+capacidad del viaducto no es la restricción y una red de varias líneas favorece la tipología más
+barata. El argumento decisivo es el costo urbano del viaducto: con 12\,\% tendría que superar
+\UmbralOfDoce{} billones por año, frente a una estimación por pérdida de valor de los predios de 0,06 a
+0,28 billones. La demanda observada en 2025 quedó en el percentil \PercentilObsFin{} de los escenarios
+de 2013, y con ella el subterráneo habría perdido más que el elevado. Para las líneas 2 y 3, la
+tipología subterránea cuesta entre \AhorroLdos{} y \AhorroLtres{} billones más y exige una
+justificación explícita.
+
+\medskip
+\noindent\textbf{Palabras clave:} movimiento browniano geométrico, Monte Carlo, cuasi-Monte Carlo,
+CVaR, opciones reales, mínimos cuadrados de Monte Carlo, equilibrio de transporte, diseño urbano,
+metro elevado, metro subterráneo, Bogotá.
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+This study builds a strategic transportation model for Bogotá in which future travel demand is a
+stochastic process rather than a point forecast. The motorized demand index of twelve zones follows a
+multivariate geometric Brownian motion (GBM) with a common factor, simulated exactly and extended with
+Merton-type systemic jumps. For \NEscenarios{} scenarios and every year from 2026 to 2050, a
+mode-choice equilibrium with BPR road congestion and transit crowding is solved on an eighteen-corridor
+network calibrated to 2025 peak speed, transit share and mean trip duration. Forty-eight urban designs,
+combining uncommitted rail projects with a proximity and polycentric land-use policy, are compared with
+common random numbers by their social cost and ranked by a mean--CVaR criterion. Under central
+assumptions and the official 9\,\% social discount rate, the optimal design is the Northern Regiotram
+combined with the full land-use policy, with an expected net benefit of \BNOptimo{} trillion pesos and
+a \PBNOptimo{} probability of a positive outcome. Additional metro lines reduce cost dispersion but do
+not pay off at that discount rate; a least-squares Monte Carlo real-options analysis, validated against
+the McDonald--Siegel closed form, shows that the value-maximizing policy for Metro Line 3 is to wait and
+build only if observed savings cross an exercise boundary. A first phase recalibrates the model to
+2013, when an underground metro was designed, and evaluates Metro Line 1 with the information then
+available. At the 12\,\% discount rate in force, the elevated line had the highest expected net
+benefit; at today's 9\,\% rate and the official 2014 cost both typologies tie, and below
+\TasaEmpate{} the underground line would be preferable. City size alone does not justify tunnelling:
+the decisive factor is the urban cost of the viaduct, which would have to exceed \UmbralOfDoce{}
+trillion pesos per year at 12\,\%, against a property-value estimate of 0.06--0.28 trillion. Observed
+2025 demand fell at the \PercentilObsFin{} percentile of the 2013 scenarios, and under it the
+underground line would have lost more than the elevated one.
+
+\medskip
+\noindent\textbf{Keywords:} geometric Brownian motion, Monte Carlo, quasi-Monte Carlo, CVaR, real
+options, least-squares Monte Carlo, transport equilibrium, urban design, elevated metro, underground metro, Bogotá.

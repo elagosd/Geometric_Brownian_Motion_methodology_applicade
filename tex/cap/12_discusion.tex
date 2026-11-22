@@ -1,0 +1,74 @@
+\chapter{Discusión}\label{cap:discusion}
+
+\section{Qué aporta modelar la demanda como un MBG}
+
+La diferencia entre evaluar un diseño en la demanda esperada y evaluarlo sobre miles de escenarios no es
+cosmética. Con congestión de tipo BPR, el costo social es convexo en la demanda, y la asimetría de las
+bandas de la \cref{fig:trayectorias} lo muestra: los escenarios de alta demanda empeoran el sistema
+mucho más de lo que lo alivian los de baja demanda. La fase I añade una lección complementaria: la
+demanda que efectivamente ocurrió entre 2013 y 2025 quedó en el percentil \PercentilObsFin{} de los
+escenarios construidos con la información de 2013. La cola existía en la distribución, pero un
+análisis con un escenario central y una sensibilidad de más o menos 10\,\% no la habría contemplado.
+La extensión con saltos de tipo Merton existe precisamente para dar más peso a esos eventos, y con
+ella las líneas de metro, que reducen la dispersión del costo, ganan atractivo frente a criterios
+centrados en la media.
+
+\section{La tasa de descuento como variable de decisión}
+
+En ambas fases la tasa social de descuento es el supuesto que más cambia el orden de los diseños. En la
+fase II, a 9\,\% las líneas de metro adicionales no se pagan, y a 3,5\,\% todas lo hacen. En la fase I,
+la tasa decide entre elevado y subterráneo: a 12\,\% gana el elevado, a 9\,\% empatan con el costo
+oficial y por debajo de \TasaEmpate{} gana el subterráneo. Esto no es un defecto del modelo sino la
+expresión de un juicio de valor: cuánto pesa el bienestar de quienes usarán el metro en 2050 frente al
+costo que se paga hoy. La recomendación práctica es que las decisiones de tipología se presenten
+siempre con la tasa de quiebre explícita, para que el debate se haga sobre ese juicio y no sobre cifras
+aisladas.
+
+\section{El debate sobre el metro elevado}
+
+El debate público sobre la Primera Línea se ha planteado a menudo como una cuestión de principio
+(«una ciudad de este tamaño merece un metro subterráneo»). El modelo sugiere reformularlo como tres
+preguntas cuantificables: cuál es el costo creíble del subterráneo, qué tasa de descuento se usa y
+cuánto vale el costo urbano del viaducto. Con las respuestas de la época (costo oficial, 12\,\% y
+pérdida de valor de los predios como medida del costo urbano), el elevado era preferible. Con otras
+respuestas igualmente defendibles (9\,\% y un costo urbano en el extremo alto del rango), el
+subterráneo de 2014 era competitivo. Lo que el modelo no respalda es que el tamaño de la ciudad baste:
+el tamaño exige una red, y la red favorece los kilómetros más baratos.
+
+La fase I muestra, además, que el mayor costo de la Primera Línea no vino de la tipología sino del
+tiempo: entre el diseño de 2014 y la operación prevista en 2028 pasaron catorce años, y en ese lapso la
+demanda resultó menor de lo esperado. Si algo enseña la historia del metro de Bogotá es que cambiar de
+decisión cuesta, y que el valor de una decisión de infraestructura depende tanto de la tipología como
+de la capacidad de ejecutarla a tiempo.
+
+\section{Limitaciones}
+
+\begin{enumerate}
+\item \textbf{Escala.} El modelo tiene doce zonas y dieciocho corredores. Sirve para comparar diseños
+      estratégicos con los mismos escenarios, no para dimensionar estaciones ni prever cargas por tramo.
+\item \textbf{Ubicación y tipología.} Las líneas se representan como corredores entre zonas. El modelo
+      no distingue entre tramos con avenidas anchas, donde un viaducto es viable, y tejidos estrechos,
+      donde exigiría compras de predios; las variantes elevadas de las líneas 2 y 3 suponen que el
+      viaducto es viable.
+\item \textbf{Costo urbano del viaducto.} Se trata mediante umbrales y una estimación externa basada en
+      el valor catastral, no dentro del modelo. Una estimación hedónica con datos de Bogotá, por ejemplo
+      con las transacciones alrededor del viaducto cuando entre en operación, permitiría cerrar esta
+      brecha.
+\item \textbf{Sobrecostos.} Las dos tipologías comparten la misma distribución de sobrecostos. Si los
+      túneles en los suelos blandos de la Sabana tuvieran más riesgo, el subterráneo saldría peor.
+\item \textbf{Trayectoria observada.} La trayectoria 2013--2025 de la fase I es estilizada: combina
+      la evolución de la demanda de TransMilenio con las encuestas de movilidad.
+\item \textbf{Uso del suelo.} La política de proximidad se representa con dos efectos agregados
+      (menos viajes motorizados y relocalización de la atracción) y un costo anual supuesto. Sus
+      beneficios dependen de que la política efectivamente cambie la localización de empleos y
+      viviendas, algo que el modelo supone y no demuestra.
+\end{enumerate}
+
+\section{Extensiones}
+
+Tres extensiones parecen las más valiosas. La primera es endogenizar el uso del suelo con un modelo de
+localización que responda a la accesibilidad, en la línea de \citet{alonso1964} y \citet{muth1969}.
+La segunda es estimar el costo urbano de los viaductos con datos de Bogotá cuando la Primera Línea
+entre en operación. La tercera es valorar como opciones reales no solo la Línea 3, sino la secuencia
+completa de la red, incluida la opción de soterrar tramos futuros si la demanda o el costo urbano lo
+justifican.

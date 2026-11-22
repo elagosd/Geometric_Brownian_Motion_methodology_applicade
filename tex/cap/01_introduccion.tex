@@ -1,0 +1,105 @@
+\chapter{Introducción}\label{cap:introduccion}
+
+\section{Motivación}
+
+Bogotá está en medio de la mayor transformación de su sistema de transporte desde la llegada de
+TransMilenio en el año 2000. La Primera Línea del Metro tiene prevista su operación comercial para
+marzo de 2028 \citep{emb2026}; la troncal de la avenida 68 está por entrar en servicio; el Regiotram
+de Occidente abrirá por fases desde 2027 \citep{regiotram2026}; la Línea 2 está en licitación
+\citep{emb2026l2}, y la Línea 3, con conexión a Soacha, está en estructuración \citep{emb2026l3}. Al
+mismo tiempo, la ciudad sigue entre las más congestionadas del mundo: en 2025 la velocidad media en
+hora pico fue de 18,9 km/h \citep{tomtom2026}, y la duración promedio de un viaje es de 48 minutos
+\citep{sdm2024}.
+
+Las decisiones que se tomen en los próximos años comprometen recursos del orden de decenas de
+billones de pesos y su retorno depende de una variable que nadie conoce: cuánta gente querrá
+desplazarse, desde dónde y hacia dónde, durante los próximos veinticinco años. La experiencia
+internacional muestra que esa variable se pronostica mal. En la muestra de \citet{flyvbjerg2005}, el
+pronóstico de pasajeros de los proyectos férreos sobreestimó la demanda real en más de 100\,\% en
+promedio, y los costos de capital de esos proyectos excedieron lo presupuestado en 44,7\,\% en
+promedio \citep{flyvbjerg2005wb}. Bogotá conoce de primera mano el otro lado de la incertidumbre: la
+demanda troncal de TransMilenio cayó a la mitad en 2020 y en 2025 todavía no recuperaba el nivel de
+2019 \citep{silla2026}.
+
+Pese a ello, la evaluación tradicional de proyectos de transporte trabaja con un escenario central de
+demanda y, a lo sumo, con un análisis de sensibilidad. Esa práctica tiene dos problemas. Primero, el
+costo social es una función no lineal de la demanda (la congestión crece más que
+proporcionalmente), de modo que el costo evaluado en la demanda esperada subestima el costo esperado
+por la desigualdad de Jensen. Segundo, ignora el valor de la flexibilidad: un proyecto que puede
+posponerse hasta conocer mejor la demanda vale más que el mismo proyecto comprometido hoy.
+
+\section{Pregunta de investigación y objetivos}
+
+La pregunta que guía el trabajo es:
+\begin{quote}\itshape
+¿Qué combinación de inversiones férreas y de política de suelo minimiza el costo social de la
+movilidad en Bogotá y su región entre 2026 y 2050, cuando la demanda futura se modela como un
+movimiento browniano geométrico y la decisión considera explícitamente el riesgo?
+\end{quote}
+
+La pregunta se responde en dos fases. La \emph{fase I} se sitúa en 2013, con la coyuntura económica y
+de movilidad de ese año, cuando Bogotá contrató el diseño de un metro subterráneo, y evalúa la primera
+línea con la información de entonces y con la que se conoció después. La \emph{fase II} actualiza el
+modelo a las condiciones de 2025 y busca el diseño óptimo de la red hacia 2050. Con ambas fases se
+responde una segunda pregunta, presente en el debate público:
+\begin{quote}\itshape
+¿Debió ser subterránea la Primera Línea del Metro, que hoy se construye elevada, dado el tamaño de
+Bogotá? ¿Bajo qué condiciones lo sería?
+\end{quote}
+
+Los objetivos específicos son:
+\begin{enumerate}[nosep]
+  \item Formular un modelo estratégico de transporte de Bogotá-región, con demanda estocástica por zona
+        y equilibrio modal con congestión, calibrado con datos públicos recientes.
+  \item Simular la demanda con un MBG multivariado de solución exacta, calibrar su volatilidad con la
+        serie de TransMilenio y estudiar la convergencia del estimador de Monte Carlo con técnicas de
+        reducción de varianza y cuasi-Monte Carlo.
+  \item Plantear el diseño urbano óptimo como un problema estocástico de selección de cartera de
+        proyectos con criterios media--CVaR y restricción presupuestal, y resolverlo por enumeración
+        sobre escenarios comunes.
+  \item Reconstruir la coyuntura de 2013, recalibrar el modelo a ese año y evaluar \emph{ex ante} y
+        \emph{ex post} las tipologías elevada y subterránea de la Primera Línea.
+  \item Cuantificar el costo urbano del viaducto que haría preferible el subterráneo y compararlo con
+        una estimación independiente, para la Primera Línea y para las líneas 2 y 3.
+  \item Valorar la opción de esperar para construir la Línea 3 con mínimos cuadrados de Monte Carlo,
+        validando el algoritmo contra la solución analítica de \citet{mcdonald1986}.
+  \item Entregar el modelo como software abierto: un paquete de Python con pruebas, una aplicación en
+        Streamlit y un repositorio público que permite reproducir cada cifra del documento.
+\end{enumerate}
+
+\section{Aportes}
+
+El trabajo une dos tradiciones que rara vez se encuentran en la práctica de la planeación del
+transporte en Colombia. De la matemática financiera toma los procesos estocásticos, la simulación de
+Monte Carlo, las medidas coherentes de riesgo y la teoría de opciones reales; de la ingeniería de
+transporte, la estructura de cuatro etapas simplificada, las funciones de congestión y el equilibrio
+modal. El resultado no pretende sustituir el modelo de demanda de la Secretaría Distrital de
+Movilidad, que trabaja con cientos de zonas y una red detallada; es un modelo \emph{estratégico}, en el
+sentido de que su escala permite simular miles de futuros posibles y comparar decenas de diseños con
+los mismos escenarios, algo inviable con un modelo detallado.
+
+Hay tres resultados que el lector puede esperar. El primero es metodológico: la combinación de MBG con
+números aleatorios comunes y cuasi-Monte Carlo permite ordenar diseños con errores de muestreo muy
+pequeños frente a las diferencias entre ellos. El segundo es sustantivo: con los supuestos centrales,
+la política de proximidad y el Regiotram del Norte dominan a las líneas de metro adicionales, y el
+orden depende sobre todo de la tasa social de descuento y del valor del tiempo. El tercero es de
+decisión: la Línea 3 tiene un valor de opción pequeño pero positivo, y la regla que lo captura es
+esperar con una frontera explícita de ejercicio. El cuarto se refiere al metro: con la información y
+la tasa de descuento de 2013 el elevado era preferible, pero la conclusión depende de la tasa de
+descuento y del valor que se asigne al costo urbano del viaducto, y el documento identifica con
+precisión los puntos de quiebre.
+
+\section{Organización del documento}
+
+La parte I reúne los fundamentos. El \cref{cap:contexto} resume el estado de la movilidad en Bogotá
+y los proyectos en curso. El \cref{cap:marco} presenta el marco teórico: economía urbana estocástica,
+el MBG, la simulación de Monte Carlo, las medidas de riesgo y las opciones reales. El
+\cref{cap:modelo} formula el modelo de transporte y su calibración; el \cref{cap:simulacion}
+desarrolla la simulación del MBG, y el \cref{cap:optimizacion} plantea el problema de diseño óptimo.
+La parte II corresponde a la fase I: el \cref{cap:coyuntura2013} describe la coyuntura de 2013 y la
+historia de la decisión del metro, y el \cref{cap:evaluacion2013} evalúa la primera línea con la
+información de 2013 y con la observada. La parte III corresponde a la fase II: el
+\cref{cap:resultados} presenta los resultados con las condiciones de 2025 y el \cref{cap:opciones}
+valora la Línea 3 como opción real. La parte IV sintetiza: el \cref{cap:metro} reúne las conclusiones
+sobre el metro elevado y el subterráneo, el \cref{cap:discusion} discute limitaciones e implicaciones y
+el \cref{cap:conclusiones} concluye. Los apéndices recogen la notación y la descripción del software.

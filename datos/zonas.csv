@@ -1,0 +1,13 @@
+id,codigo,nombre,localidades,ambito,lat,lon,poblacion_miles,tasa_generacion,mu_demografica,sigma_idio,atraccion,peso_policentrico,fuente_poblacion
+0,CEN,Centro ampliado,"Chapinero, Teusaquillo, Santa Fe, Los Mártires, La Candelaria",Bogotá,4.640,-74.072,512,1.00,-0.008,0.030,0.300,0.00,Aproximación del autor a partir de proyecciones DANE-SDP (actualización 2025)
+1,USA,Usaquén,Usaquén,Bogotá,4.715,-74.035,545,1.00,-0.005,0.030,0.090,0.05,Aproximación del autor a partir de proyecciones DANE-SDP (actualización 2025)
+2,SUB,Suba,Suba,Bogotá,4.745,-74.085,1246,1.00,0.000,0.030,0.080,0.20,DANE 2025: Suba ≈ 1.2 millones (15.7 % de Bogotá)
+3,ENG,Engativá – Barrios Unidos,"Engativá, Barrios Unidos",Bogotá,4.700,-74.105,1000,1.00,-0.006,0.030,0.090,0.10,Aproximación del autor a partir de proyecciones DANE-SDP (actualización 2025)
+4,FON,Fontibón – Puente Aranda,"Fontibón, Puente Aranda",Bogotá,4.655,-74.125,670,1.00,-0.001,0.030,0.130,0.20,Aproximación del autor a partir de proyecciones DANE-SDP (actualización 2025)
+5,KEN,Kennedy,Kennedy,Bogotá,4.628,-74.150,1080,1.00,-0.004,0.030,0.080,0.25,DANE 2025: Kennedy ≈ 1.1 millones (13.6 % de Bogotá)
+6,BOS,Bosa,Bosa,Bogotá,4.615,-74.190,760,1.00,0.006,0.030,0.035,0.10,Aproximación del autor; Bosa es de las localidades que crecen hacia 2035 (SDMujer 2025)
+7,SOC,Suroccidente,"Ciudad Bolívar, Tunjuelito, Usme, Sumapaz",Bogotá,4.540,-74.130,1320,1.00,0.004,0.030,0.040,0.00,Aproximación del autor; Ciudad Bolívar y Usme crecen hacia 2035 (SDMujer 2025)
+8,SOR,Suroriente,"Rafael Uribe Uribe, San Cristóbal, Antonio Nariño",Bogotá,4.565,-74.095,805,1.00,-0.006,0.030,0.045,0.00,Aproximación del autor a partir de proyecciones DANE-SDP (actualización 2025)
+9,SOA,Soacha,Soacha,Región,4.580,-74.215,870,0.85,0.012,0.040,0.030,0.10,DANE – Encuesta Multipropósito 2025: Soacha ≈ 870 mil habitantes
+10,SAO,Sabana Occidente,"Mosquera, Funza, Madrid, Facatativá",Región,4.705,-74.230,560,0.85,0.020,0.040,0.040,0.00,EM 2025: Mosquera ≈ 180 mil; resto aproximación del autor
+11,SAN,Sabana Norte,"Chía, Cajicá, Zipaquirá, Cota, Sopó, Tocancipá, Tenjo, Tabio",Región,4.860,-74.040,610,0.85,0.018,0.040,0.040,0.00,EM 2025: Chía ≈ 174 mil; resto aproximación del autor

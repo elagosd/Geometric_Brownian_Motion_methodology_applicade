@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+
+# Las salidas de la simulacion (salidas/) SI se versionan: pesan ~1,5 MB y
+# permiten reproducir figuras y tablas sin volver a simular.
+salidas/log_*.txt
+
+# Streamlit: la clave local no se comparte
+.streamlit/secrets.toml
+
+# LaTeX: archivos auxiliares de compilacion
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

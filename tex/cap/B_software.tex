@@ -1,0 +1,54 @@
+\chapter{Software y reproducibilidad}\label{ap:software}
+
+Todas las simulaciones de las dos fases están escritas en Python y se publican, junto con sus
+resultados, en el repositorio
+\url{https://github.com/elagosd/Geometric_Brownian_Motion_methodology_applicade}.
+
+\section{Estructura}
+
+{\small
+\begin{longtable}{p{5.6cm}p{9.4cm}}
+\toprule
+Ruta & Contenido \\
+\midrule
+\endhead
+\texttt{datos/} & Zonas, corredores, proyectos, serie de TransMilenio y calibraciones de 2013 y 2025 \\
+\texttt{py/modelo/gbm.py} & MBG multivariado, saltos de Merton, Sobol y calibración por máxima verosimilitud \\
+\texttt{py/modelo/red.py} & Red, caminos mínimos y oferta anual \\
+\texttt{py/modelo/demanda.py} & Generación, atracción y modelo gravitacional \\
+\texttt{py/modelo/asignacion.py} & Equilibrio modal con congestión y promedio autorregulado \\
+\texttt{py/modelo/calibracion.py} & Calibración del año base 2025 \\
+\texttt{py/modelo/evaluacion.py} & Costo social, sobrecostos y valor presente \\
+\texttt{py/modelo/riesgo.py} & VaR, CVaR, frontera de Pareto \\
+\texttt{py/modelo/optimizacion.py} & Enumeración de diseños y criterio media--CVaR \\
+\texttt{py/modelo/opciones\_reales.py} & Mínimos cuadrados de Monte Carlo y McDonald--Siegel \\
+\texttt{py/modelo/fases.py} & Fase I: parámetros, calibración y escenarios de 2013 \\
+\texttt{py/modelo/metro.py} & Costos unitarios elevado/subterráneo y costo urbano umbral \\
+\texttt{py/correr\_simulacion.py} & Simulación completa de la fase II \\
+\texttt{py/correr\_fase\_2013.py} & Simulación de la fase I y comparación de tipologías \\
+\texttt{py/fig\_*.py} & Figuras del documento \\
+\texttt{py/generar\_*.py} & Cifras (macros) y tablas de \LaTeX{} a partir de las salidas \\
+\texttt{salidas/} & Resultados completos de las simulaciones (CSV, JSON, NPZ) \\
+\texttt{app/} & Aplicación interactiva en Streamlit \\
+\texttt{tests/} & Pruebas automáticas (\texttt{pytest}) \\
+\texttt{tex/} & Este documento \\
+\texttt{INICIAR.bat} & Menú para Windows: abrir el PDF, la aplicación, regenerar y compilar \\
+\bottomrule
+\end{longtable}}
+
+\section{Reproducción}
+
+\begin{verbatim}
+pip install -r requirements.txt
+cd py
+python correr_simulacion.py   # fase II (~25 min)
+python correr_fase_2013.py    # fase I (~3 min)
+for f in fig_0*.py; do python $f; done
+python generar_macros_tex.py && python generar_tablas_tex.py
+cd ../tex && latexmk -pdf investigacion.tex
+streamlit run app/app.py      # aplicacion
+\end{verbatim}
+
+Las cifras del texto no se escriben a mano: \texttt{generar\_macros\_tex.py} las lee de
+\texttt{salidas/} y las escribe en \texttt{tex/datos\_numericos.tex}. Las semillas son fijas (2026 para
+la fase II y 2013 para la fase I), de modo que dos corridas producen los mismos resultados.

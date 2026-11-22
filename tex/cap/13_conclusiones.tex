@@ -1,0 +1,55 @@
+\chapter{Conclusiones}\label{cap:conclusiones}
+
+Esta investigación modeló la movilidad de Bogotá y su región con una demanda estocástica, un movimiento
+browniano geométrico multivariado, y evaluó con simulación de Monte Carlo los diseños urbanos que
+combinan inversiones férreas y política de suelo. El trabajo se desarrolló en dos fases: la primera con
+la coyuntura de 2013 y la segunda con las condiciones de 2025. Las conclusiones principales son las
+siguientes.
+
+\paragraph{Metodología.} La solución exacta del MBG, los números aleatorios comunes y el cuasi-Monte
+Carlo con secuencias de Sobol permiten ordenar decenas de diseños con errores de muestreo muy pequeños
+frente a las diferencias entre ellos: el error cuadrático medio del costo esperado converge a una tasa
+cercana a $n^{\PendienteSobol}$, frente a $n^{\PendienteMC}$ del Monte Carlo simple. El algoritmo de
+mínimos cuadrados de Monte Carlo reproduce la solución analítica de McDonald y Siegel con un error de
+\MSError.
+
+\paragraph{Fase I: 2013.} Con la información de 2013 y la tasa de descuento de 12\,\%, el metro elevado
+tenía el mayor beneficio neto esperado entre las alternativas de primera línea (\BNElevDoce{} billones,
+frente a \BNSubOfDoce{} del subterráneo con su costo oficial). La demanda que efectivamente ocurrió
+quedó en el percentil \PercentilObsFin{} de los escenarios de 2013, por la menor población, la
+pandemia y una recuperación incompleta; con ella, ninguna primera línea se paga a 12\,\%, y el
+subterráneo habría perdido más que el elevado.
+
+\paragraph{Fase II: 2025.} Con la tasa de 9\,\%, el diseño óptimo es \OptimoNeutral: el Regiotram del
+Norte con la política de proximidad completa, con un beneficio neto esperado de \BNOptimo{} billones y
+positivo en el \PBNOptimo{} de los escenarios. Las líneas de metro adicionales reducen la dispersión
+del costo social pero no se pagan a esa tasa; con saltos sistémicos, la combinación con la Línea 3
+tiene el menor CVaR. La Línea 3 tiene un valor de opción pequeño pero positivo (\OpcionFlexible{}
+billones), frente a un VPN de \OpcionAhora{} si se compromete hoy: la regla es esperar.
+
+\paragraph{El metro de Bogotá.} La hipótesis de que la Primera Línea debió ser subterránea por el tamaño
+de la ciudad no se sostiene en su forma general, pero tiene un núcleo defendible. El tamaño, por sí
+solo, no la justifica: la capacidad del viaducto no es la restricción y una ciudad grande necesita una
+red, para la cual el elevado permite construir \KmPorKm{} kilómetros por cada kilómetro subterráneo.
+El subterráneo de 2014 habría sido preferible con una tasa de descuento inferior a \TasaEmpate{}, o con
+la tasa actual de 9\,\% si el costo urbano del viaducto supera unos \UmbralOfNueve{} billones por año,
+un valor que está en el extremo alto del rango estimado por pérdida de valor de los predios. Con la tasa
+de la época, ese costo tendría que haber superado \UmbralOfDoce{} billones por año. Para las líneas 2 y
+3, la tipología subterránea cuesta entre \AhorroLdos{} y \AhorroLtres{} billones más que una variante
+elevada y exige una justificación explícita del corredor; una Línea 3 elevada entraría en el diseño
+óptimo. Reabrir hoy la tipología de la Primera Línea no tiene sentido económico.
+
+\paragraph{Recomendaciones.}
+\begin{enumerate}[nosep]
+\item Evaluar los proyectos de transporte sobre distribuciones de escenarios y reportar, además del
+      valor esperado, el CVaR y la probabilidad de beneficio neto positivo.
+\item Presentar las decisiones de tipología con su tasa de descuento de quiebre y el costo urbano
+      umbral, de modo que el debate se haga sobre supuestos explícitos.
+\item Priorizar la política de proximidad y los proyectos de menor costo por kilómetro antes que nuevas
+      líneas subterráneas, y mantener la Línea 3 como opción, con una regla de ejercicio explícita.
+\item Medir el costo urbano real del viaducto de la Primera Línea cuando entre en operación, para que
+      las decisiones de las próximas líneas se apoyen en evidencia local.
+\end{enumerate}
+
+Todo el modelo, los datos y la aplicación interactiva están disponibles en el repositorio público, de
+modo que cada cifra de este documento puede reproducirse y cada supuesto puede cambiarse.

@@ -1,0 +1,52 @@
+\documentclass[12pt,oneside]{report}
+\input{preambulo}
+\input{datos_numericos}
+
+% ---------------------------------------------------------------------
+%  COMPILACION PARCIAL: descomente y deje solo los capitulos que edita.
+% ---------------------------------------------------------------------
+%\includeonly{cap/11_metro}
+
+\begin{document}
+\onehalfspacing
+
+\input{cap/00_portada}
+
+\pagenumbering{roman}
+\input{cap/00_resumen}
+\tableofcontents
+\listoffigures
+\listoftables
+\cleardoublepage
+\pagenumbering{arabic}
+
+\part{Fundamentos}
+\include{cap/01_introduccion}
+\include{cap/02_contexto}
+\include{cap/03_marco_teorico}
+\include{cap/04_modelo}
+\include{cap/05_simulacion}
+\include{cap/06_optimizacion}
+
+\part{Fase I: la coyuntura de 2013}
+\include{cap/07_fase1_coyuntura}
+\include{cap/08_fase1_evaluacion}
+
+\part{Fase II: actualización con las condiciones actuales}
+\include{cap/09_fase2_resultados}
+\include{cap/10_fase2_opciones}
+
+\part{Síntesis}
+\include{cap/11_metro}
+\include{cap/12_discusion}
+\include{cap/13_conclusiones}
+
+\appendix
+\include{cap/A_notacion}
+\include{cap/B_software}
+
+\bibliographystyle{plainnat}
+\bibliography{bibliografia}
+\addcontentsline{toc}{chapter}{Bibliografía}
+
+\end{document}

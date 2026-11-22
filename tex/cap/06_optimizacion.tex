@@ -1,0 +1,51 @@
+\chapter{El problema del diseño urbano óptimo}\label{cap:optimizacion}
+
+\section{Conjunto de diseños}
+
+Un diseño urbano es un par $d=(\mathcal S,\theta)$, donde $\mathcal S$ es un subconjunto de los cuatro
+proyectos en decisión (extensión de la Línea 1 a la calle 100, L1X; Línea 2, L2; Línea 3, L3;
+Regiotram del Norte, RTN) y $\theta\in\{0;\,0{,}5;\,1\}$ la intensidad de la política de proximidad y
+policentrismo. El conjunto $\mathcal D$ tiene $2^4\times3=\NDisenos$ diseños. El diseño base,
+$(\emptyset,0)$, contiene solo los proyectos comprometidos y sirve de referencia: el beneficio neto de
+$d$ en el escenario $\omega$ es $BN(d,\omega)=\VP(\text{base},\omega)-\VP(d,\omega)$.
+
+Los diseños se escriben en el documento y en el software como «\texttt{L3+RTN | θ=1}». Los años de
+apertura de los proyectos en decisión son los de la \cref{tab:proyectos}; la \cref{cap:opciones}
+levanta ese supuesto para la Línea 3.
+
+\section{Formulación estocástica}
+
+El problema de referencia es un programa estocástico con criterio media--CVaR,
+\begin{equation}\label{eq:problema}
+\min_{d\in\mathcal D}\;(1-w)\,\E\big[\VP(d,\cdot)\big]+w\,\CVaR_{0{,}95}\big[\VP(d,\cdot)\big]
+\quad\text{s.\,a.}\quad\E\big[\mathrm{CAPEX}(d,\cdot)\big]\le B,
+\end{equation}
+donde $w\in[0,1]$ es el peso de la cola (aversión al riesgo) y $B$ un presupuesto de inversión
+esperada. Con $w=0$ el planificador es neutral al riesgo; con $w=1$ minimiza el costo esperado en el
+5\,\% de los peores escenarios.
+
+\section{Aproximación por promedio muestral}
+
+El valor esperado y el CVaR se reemplazan por sus versiones muestrales sobre los mismos $n$ escenarios
+para todos los diseños (aproximación por promedio muestral, SAA). Como $\mathcal D$ es finito y pequeño,
+el problema muestral se resuelve exactamente por enumeración: se evalúan los \NDisenos{} diseños, se
+calculan $\hat\E$, $\widehat{\CVaR}$ y la probabilidad de beneficio neto positivo, y se identifica la
+\emph{frontera de Pareto} en el plano $(\hat\E,\widehat{\CVaR})$: los diseños para los que no existe
+otro con menor costo esperado y menor CVaR a la vez. Todo minimizador de \eqref{eq:problema} sin
+restricción presupuestal está en esa frontera, y al recorrer $w$ de 0 a 1 se obtiene la ruta de diseños
+óptimos.
+
+\begin{remark}
+La enumeración es posible porque cada evaluación es barata: el equilibrio de una red de 12 zonas se
+vectoriza sobre los $n$ escenarios con productos matriciales $(n\times Z^2)\cdot(Z^2\times D)$, y los
+\NDisenos{} diseños con 1.024 escenarios y 25 años se evalúan en pocos minutos en un computador
+personal. Con muchos más proyectos, la enumeración debería sustituirse por una formulación entera mixta
+con la representación lineal del CVaR de \citet{rockafellar2000}.
+\end{remark}
+
+\section{Errores de muestreo}
+
+Cada estimador se reporta con su error estándar. Para el beneficio neto de un diseño frente a la base,
+los números aleatorios comunes hacen que el error estándar sea mucho menor que el del costo de cada
+diseño: con $n=\NEscenarios$, el error estándar del costo esperado del diseño base es \VPBaseEE{}
+billones, mientras que el del beneficio neto del diseño óptimo es \BNOptimoEE.

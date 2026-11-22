@@ -1,0 +1,8 @@
+id,nombre,estado,apertura,capex_billones,clase_sobrecosto,capacidad,velocidad,aristas,anios_construccion,fuente
+L1,Metro Línea 1 (Bosa – Calle 72),comprometido,2028,0.0,ferro,72000,43.0,e08:1;e07:1,5,"EMB: 72.000 pasajeros/hora-sentido, velocidad comercial 43 km/h, operación comercial marzo de 2028"
+T68,Troncal Av. 68 (TransMilenio),comprometido,2027,0.0,brt,25000,25.2,e15:1;e12:1;e13:1;e16:1,5,"IDU: 17,07 km, 90 % de avance en oct-2026, operación 2026–2027"
+RTO,Regiotram de Occidente,comprometido,2030,0.0,ferro,10000,30.0,e05:1;e06:1,5,"Gobernación de Cundinamarca: ~40 km, 130.000 pasajeros/día; fase 1 en 2027, corredor completo hacia 2029–2030"
+L1X,Extensión Línea 1 hasta la Calle 100,decision,2031,3.4,ferro,72000,43.0,e01:0.5,4,"Iniciativa privada CHEC: costo estimado 3,4 billones; apertura supuesta por el autor"
+L2,Metro Línea 2 (Calle 72 – Suba),decision,2033,19.6,ferro,60000,40.0,e04:1;e14:1,5,"EMB: 15,5 km y 11 estaciones; CAPEX de 16,25 billones a pesos de nov-2022 (estudio EMB, ene-2023) indexado a 2025 por la inflación de 2023-2025 (×1,208); capacidad entre 49.000 y 76.000 según la fuente"
+L3,Metro Línea 3 (Soacha – Calle 100),decision,2033,31.0,ferro,60000,40.0,e09:1;e08:0.5;e12:1;e13:1;e14:1,5,"EMB: ~24,5 km, 18 estaciones, subterránea; costo estimado por el autor con el CAPEX por km de la L2 (1,048 billones/km a pesos de nov-2022) indexado a 2025 (×1,208)"
+RTN,Regiotram del Norte,decision,2034,4.3,ferro,14000,35.0,e02:1;e01:0.7,5,MinTransporte: 187.000 pasajeros/día en 2034; costo estimado por el autor con el costo unitario del Regiotram de Occidente

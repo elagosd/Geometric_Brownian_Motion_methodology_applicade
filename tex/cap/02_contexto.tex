@@ -1,0 +1,54 @@
+\chapter{La movilidad en Bogotá: datos y proyectos}\label{cap:contexto}
+
+\section{Demanda de viajes}
+
+La Encuesta de Movilidad 2023 estima 14,64 millones de viajes diarios en Bogotá y veinte municipios
+vecinos, de los cuales 12,14 millones se originan en Bogotá y 2,5 millones en los municipios
+\citep{sdm2024}. El transporte público concentra el 35\,\% de los viajes, la caminata el 28\,\%, el
+automóvil el 14\,\%, la bicicleta y la motocicleta el 7\,\% cada una y el taxi el 4\,\%; la duración
+promedio de un viaje es de 48 minutos. Entre los modos motorizados que compiten por la capacidad de los
+corredores (transporte público, automóvil, motocicleta y taxi, que suman alrededor del 60\,\% de los
+viajes), el transporte público representa entonces cerca de 35/60 $\approx$ 58\,\% de los viajes.
+
+La estructura espacial es marcadamente radial: la generación de viajes se concentra en las localidades
+periféricas y la atracción en el centro ampliado y el corredor oriental, lo que produce flujos de hora
+pico en un solo sentido sobre los corredores troncales. Según las proyecciones posteriores a la
+pandemia, Bogotá tiene 7.937.898 habitantes en 2025 \citep{dane2025}; Suba (cerca de 1,2 millones) y
+Kennedy (cerca de 1,1 millones) son las localidades más pobladas, y la población total empezaría a
+decrecer desde 2026, con crecimiento solo en localidades del borde como Bosa, Usme y Ciudad Bolívar.
+Los municipios de la Sabana, en cambio, crecen con rapidez: Soacha tiene cerca de 870 mil habitantes y
+Mosquera y Chía superan los 170 mil cada uno \citep{dane2025}.
+
+\section{Oferta y desempeño}
+
+TransMilenio movió cerca de 2 millones de pasajeros troncales por día hábil en 2025, todavía por
+debajo de los 2,6 millones de 2018--2019; la velocidad comercial de las troncales fue de 25,2 km/h en
+2024 \citep{silla2026}. En la red vial, la velocidad media en hora pico fue de 18,9 km/h en 2025, lo que
+ubicó a Bogotá en el séptimo lugar mundial de congestión \citep{tomtom2026}.
+
+\section{Proyectos en curso y en decisión}
+
+La \cref{tab:proyectos} resume los proyectos que considera el modelo. Se distinguen los
+\emph{comprometidos}, contratados o en construcción, que forman parte de todos los escenarios, de los
+\emph{en decisión}, que definen los diseños urbanos. Los costos de los proyectos en decisión son, salvo
+la extensión de la Línea 1, estimaciones del autor a partir de cifras públicas y se tratan con
+sobrecostos aleatorios (\cref{sec:costo}).
+
+\begin{table}[ht]
+\centering\small
+\caption{Proyectos de la red modelada (CAPEX en billones de pesos de 2025).}\label{tab:proyectos}
+\resizebox{\textwidth}{!}{\input{tablas/tabla_proyectos}}
+\fuente{Empresa Metro de Bogotá \citep{emb2026,emb2026l2,emb2026l3}; Gobernación de Cundinamarca
+\citep{regiotram2026}; IDU; cálculos del autor. El costo de la Línea 2 corresponde a 16,25 billones de
+pesos de noviembre de 2022 \citep{emb2023} indexados por \Indexacion; el de la Línea 3 aplica el costo unitario de la Línea 2 a sus 24,5 km; el del
+Regiotram del Norte aplica el costo unitario del Regiotram de Occidente a unos 48 km.}
+\end{table}
+
+\section{Ordenamiento territorial}
+
+El Plan de Ordenamiento Territorial adoptado con el Decreto 555 de 2021 propone una ciudad de
+proximidad (la «ciudad de 30 minutos»), organizada en unidades de planeamiento local y con
+centralidades que acerquen empleo y servicios a la vivienda \citep{decreto555}. En este trabajo esa
+orientación se representa con una política de intensidad $\theta\in[0,1]$ que reduce la fracción de
+viajes motorizados y relocaliza parte de la atracción del centro hacia subcentros asociados a la red
+de transporte masivo (\cref{sec:suelo}).

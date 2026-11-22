@@ -1,0 +1,19 @@
+id,origen,destino,nombre,cap_via_rel,servicio_tp_base,cap_tp_base,vel_tp_base
+e01,1,0,Autopista Norte – Caracas (norte),1.30,troncal,35000,25.2
+e02,11,1,Autopista Norte – Sabana Norte,1.00,zonal,9000,
+e03,2,0,Av. Suba – NQS,1.00,troncal,25000,25.2
+e04,3,0,Calle 80,1.00,troncal,25000,25.2
+e05,10,4,Calle 13 – Sabana Occidente,1.00,zonal,9000,
+e06,4,0,Calle 26 / Calle 13 (Fontibón – Centro),1.20,troncal,30000,25.2
+e07,5,0,Av. Américas / Primero de Mayo – NQS,1.20,troncal,35000,25.2
+e08,6,5,Bosa – Américas,0.80,troncal,20000,25.2
+e09,9,6,Autopista Sur – NQS (Soacha),0.90,troncal,18000,25.2
+e10,7,0,Caracas Sur – Tunal,1.00,troncal,30000,25.2
+e11,8,0,Carrera 10 – Caracas (suroriente),0.80,troncal,20000,25.2
+e12,5,4,Av. 68 / Boyacá (Kennedy – Fontibón),0.80,zonal,10000,
+e13,4,3,Av. 68 / Boyacá (Fontibón – Engativá),0.80,zonal,10000,
+e14,3,2,Av. Boyacá / Ciudad de Cali (Engativá – Suba),0.80,zonal,10000,
+e15,7,5,Av. 68 / Boyacá sur (Tunjuelito – Kennedy),0.80,zonal,10000,
+e16,3,1,Calle 100 / Av. 68 norte (Engativá – Usaquén),0.80,zonal,10000,
+e17,8,7,Transversal sur (Suroriente – Suroccidente),0.50,zonal,6000,
+e18,2,1,Calle 170 / Boyacá norte (Suba – Usaquén),0.70,zonal,8000,

@@ -1,0 +1,120 @@
+\chapter{Marco teórico}\label{cap:marco}
+
+\section{La ciudad como sistema estocástico}
+
+La economía urbana clásica explica la forma de la ciudad como un equilibrio entre el costo de
+transporte y el precio del suelo. En el modelo monocéntrico de \citet{alonso1964}, \citet{mills1967} y
+\citet{muth1969}, todos los empleos están en un centro y cada hogar elige su distancia a él
+compensando suelo más barato con viajes más largos; la renta del suelo decrece con la distancia y la
+densidad se ajusta a ella. Dos ideas de esa tradición sostienen este trabajo. La primera es que la red
+de transporte y la localización de las actividades se determinan conjuntamente: un corredor rápido
+amplía el área accesible, y una política que acerque empleo y vivienda reduce la necesidad de
+viajar. La segunda es que la ciudad se construye bajo incertidumbre y con inversiones irreversibles.
+
+\citet{capozza1990} formalizaron esa segunda idea en \emph{La ciudad estocástica}: cuando la renta
+urbana sigue un movimiento browniano, la conversión de suelo rural en urbano es una opción, y su
+ejercicio óptimo exige que la renta supere el costo de conversión por una prima que crece con la
+volatilidad. \citet{capozza1994} extendieron el argumento a la estructura de riesgo de los mercados de
+suelo. Por otro lado, la ley de Gibrat de crecimiento proporcional aleatorio, que en tiempo continuo
+es exactamente un MBG, es la explicación canónica de la ley de Zipf para el tamaño de las ciudades
+\citep{gabaix1999}. Modelar la demanda de una zona urbana como un MBG tiene, por tanto, fundamento en la
+literatura de economía urbana y no solo en la de finanzas.
+
+\section{El movimiento browniano geométrico}
+
+\begin{definition}[MBG multivariado]
+Sea $W=(W_1,\dots,W_m)$ un movimiento browniano estándar en $\R^m$ y $L\in\R^{Z\times m}$. El proceso
+$X=(X_1,\dots,X_Z)$ es un MBG multivariado si
+\begin{equation}\label{eq:mbg}
+\frac{dX_i(t)}{X_i(t)}=\mu_i\,dt+\sum_{k=1}^{m}L_{ik}\,dW_k(t),\qquad X_i(0)>0,
+\end{equation}
+con matriz de covarianza instantánea $\Sigma=LL^\top$.
+\end{definition}
+
+Por el lema de Itô aplicado a $\ln X_i$ \citep{oksendal2003}, la solución es
+\begin{equation}\label{eq:mbg_sol}
+X_i(t)=X_i(0)\exp\!\Big(\big(\mu_i-\tfrac12\Sigma_{ii}\big)t+\textstyle\sum_k L_{ik}W_k(t)\Big),
+\end{equation}
+de modo que $\ln X(t)$ es normal multivariado con media $\ln X(0)+(\mu-\tfrac12\diag\Sigma)t$ y
+covarianza $\Sigma t$. En particular $\E[X_i(t)]=X_i(0)e^{\mu_i t}$ y
+$\operatorname{Var}[\ln X_i(t)]=\Sigma_{ii}t$. Tres propiedades hacen del MBG un punto de partida
+natural para la demanda: es positivo, sus incrementos relativos son independientes del nivel (ley de
+Gibrat) y su dispersión crece con el horizonte, lo que traduce en números la intuición de que el
+futuro lejano es más incierto que el cercano.
+
+Sus limitaciones también son conocidas y se discuten en el \cref{cap:discusion}: el MBG no tiene
+saturación ni reversión a la media, y no captura choques discretos. Para lo último se usa la extensión
+de \citet{merton1976}, que añade un proceso de Poisson compuesto:
+\begin{equation}\label{eq:merton}
+\frac{dX_i}{X_{i^-}}=\big(\mu_i-\lambda\kappa\big)dt+\sum_k L_{ik}\,dW_k+\big(e^{J}-1\big)dN,
+\qquad J\sim\mathcal N(m_J,s_J^2),\;\kappa=e^{m_J+s_J^2/2}-1,
+\end{equation}
+donde la corrección $-\lambda\kappa$ (\emph{compensación}) mantiene la media del proceso igual a la del
+MBG sin saltos.
+
+\section{Simulación de Monte Carlo}
+
+Si $g$ es el costo social de un diseño como función de la trayectoria de demanda, el objetivo es
+$\E[g(X)]$ y otras funcionales de la distribución de $g(X)$. El estimador de Monte Carlo
+$\hat\mu_n=\frac1n\sum_{r=1}^n g(X^{(r)})$ es insesgado y, por el teorema central del límite, su error
+es del orden $\sigma_g/\sqrt n$ \citep{glasserman2004}. Dos técnicas reducen la constante o mejoran la
+tasa:
+\begin{itemize}[nosep]
+\item \emph{Variables antitéticas}: se usan los pares $(Z,-Z)$ de normales; si $g$ es monótona en $Z$,
+      la covarianza negativa entre los pares reduce la varianza del promedio.
+\item \emph{Cuasi-Monte Carlo}: se reemplazan los uniformes pseudoaleatorios por una secuencia de baja
+      discrepancia (Sobol) aleatorizada; para integrandos suaves, la varianza del estimador decrece más
+      rápido que $1/n$ \citep{owen1997}.
+\end{itemize}
+Cuando se comparan diseños, la técnica decisiva es la de \emph{números aleatorios comunes}: todos los
+diseños se evalúan con los mismos escenarios, de modo que la diferencia de costos entre dos diseños
+tiene una varianza mucho menor que la suma de sus varianzas.
+
+\section{Medidas de riesgo}
+
+Sea $L$ una pérdida (aquí, el costo social en valor presente). El valor en riesgo al nivel $\alpha$ es
+el cuantil $\VaR_\alpha(L)=\inf\{c:\Prob(L\le c)\ge\alpha\}$, y el valor en riesgo condicional es la
+media de la cola,
+\begin{equation}\label{eq:cvar}
+\CVaR_\alpha(L)=\min_{c\in\R}\Big\{c+\frac{\E[(L-c)^+]}{1-\alpha}\Big\},
+\end{equation}
+representación de \citet{rockafellar2000} cuyo minimizador es el VaR. A diferencia del VaR, el CVaR es
+una medida coherente (en particular, subaditiva) y convexa, y su versión muestral entra de forma lineal
+en problemas de optimización. Con $n$ escenarios, el estimador usado es
+$\widehat{\VaR}+\frac{1}{n(1-\alpha)}\sum_r(L_r-\widehat{\VaR})^+$.
+
+\section{Opciones reales}
+
+Una inversión irreversible cuyo valor fluctúa es análoga a una opción de compra americana: invertir
+equivale a ejercer y destruye la opción de esperar. Para un proyecto de valor $V$ que sigue un MBG con
+deriva $\mu$ y volatilidad $\sigma$, costo $I$ y tasa de descuento $r>\mu$, \citet{mcdonald1986}
+mostraron que el valor de la oportunidad de invertir es
+\begin{equation}\label{eq:ms}
+F(V)=\begin{cases}(V^*-I)\,(V/V^*)^{\beta}, & V<V^*,\\ V-I, & V\ge V^*,\end{cases}
+\qquad V^*=\frac{\beta}{\beta-1}I,
+\end{equation}
+con $\beta>1$ la raíz positiva de $\tfrac12\sigma^2\beta(\beta-1)+\mu\beta-r=0$. La regla clásica del
+VPN («invertir si $V>I$») es subóptima: el umbral óptimo $V^*$ supera a $I$ en un múltiplo que crece con
+la volatilidad \citep{dixit1994}. En transporte, este marco se ha usado para el momento de ampliar
+carreteras bajo incertidumbre de demanda \citep{wang2017} y para la flexibilidad frente al cambio
+climático \citep{li2022}.
+
+Cuando el valor del proyecto depende de una red y no tiene forma cerrada, la opción se valora por
+simulación. El algoritmo de mínimos cuadrados de Monte Carlo (LSM) de \citet{longstaff2001} recorre
+hacia atrás las fechas de decisión y estima el valor de continuar mediante una regresión del valor
+futuro realizado sobre funciones de la variable de estado; se ejerce cuando el valor inmediato supera
+la continuación estimada.
+
+\section{Equilibrio de transporte}
+
+La forma de cuatro etapas (generación, distribución, partición modal y asignación) sigue siendo el
+esqueleto de los modelos de demanda \citep{ortuzar2011}. La distribución se modela aquí con un modelo
+gravitacional doblemente acotado, la partición modal con un logit binario y la congestión vial con la
+función del \citet{bpr1964},
+\begin{equation}\label{eq:bpr}
+t(v)=t_0\Big(1+\alpha\big(v/c\big)^{\beta}\Big),
+\end{equation}
+con $\alpha=0{,}15$ y $\beta=4$. El equilibrio entre la elección de modo y los tiempos que esa elección
+produce es un problema de punto fijo; cuando el costo de cada modo depende solo de su propia carga y las
+funciones son crecientes, equivale a un programa convexo con solución única \citep{sheffi1985}, y se
+resuelve con promedios sucesivos, aquí con paso autorregulado \citep{liu2009}.
